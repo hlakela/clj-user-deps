@@ -18,6 +18,6 @@ $ export CLJ_CONFIG=/path/to/the/containing/directory
 Currently there are only a couple of aliases defined in the file. For example the alias named as cider-nrepl can be invoked like this:
 
 ```
-    $ clj -A:cider-nrepl
+$ clj -A:cider-nrepl
 ```
 If the aforementioned command was successful, there should now be an nrepl waiting for [CIDER](https://github.com/clojure-emacs/cider) connection in the port number 60607. The port numbers are hardcoded in. 
