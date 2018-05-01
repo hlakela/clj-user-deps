@@ -1,0 +1,22 @@
+;; My user deps.edn file for Clojure's clj and clojure CLI tooling.
+;;
+;; If this file is not placed in $HOME/.clojure directory,
+;; then refer to this file as by setting the CLJ_CONFIG env variable, like so:
+;;    export CLJ_CONFIG=/path/to/the/containing/directory
+
+{:aliases
+  ;;
+  ;; Invoke this alias to start an embedded nrepl in the predefined port as:
+  ;;   clj -A:nrepl
+ {:nrepl {:extra-deps {org.clojure/tools.nrepl {:mvn/version "0.2.12"}}
+          :main-opts ["-e" "(require,'[clojure.tools.nrepl.server,:refer,[start-server]]),(start-server,:port,60606)"]}
+  ;;
+  ;; Invoke this alias to start an embedded cider middleware enabled nrepl
+  ;; in the predefined port as:
+  ;;   clj -A:cider-nrepl
+  ;; Note that the cider-nrepl middleware library dep shoud match what is
+  ;; currently installed in emacs' cider.
+  :cider-nrepl {:extra-deps
+                {org.clojure/tools.nrepl {:mvn/version "0.2.12"}
+                 cider/cider-nrepl {:mvn/version "0.17.0-SNAPSHOT"}}
+                :main-opts ["-e" "(require,'[clojure.tools.nrepl.server,:refer,[start-server]],'[cider.nrepl,:refer,[cider-nrepl-handler]]),(start-server,:port,60607,:handler,cider-nrepl-handler)"]}}}
